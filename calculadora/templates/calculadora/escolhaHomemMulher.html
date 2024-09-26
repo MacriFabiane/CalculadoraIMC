@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block conteudo%} 
+
+<div class="genero">
+    <h2>Você é homem ou mulher?</h2>
+    <form method="POST" action="{% url 'resultadoHM' %}">
+        {% csrf_token %}
+        <!-- Botão homem -->
+        <input type="hidden" name="resultado" value="{{ resultado }}">
+        <button type="submit" name="genero" value="homem">
+            <img id="homem" src="{% static 'imagens/homem_mario.png' %}" alt="Homem" style="width: 180px; height: 200px;">
+        </button>
+        <!-- Botão mulher -->
+        <button type="submit" name="genero" value="mulher">
+            <img id="mulher" src="{% static 'imagens/mulher_peach.png' %}" alt="Mulher" style="width: 180px; height: 200px;">
+        </button>
+    </form>
+</div>
+
+{%endblock%}

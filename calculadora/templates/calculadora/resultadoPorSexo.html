@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block conteudo%} 
+
+<div class="resultadoIMC">
+    <p>O seu IMC é <span class='imc'> {{resultado}}</span>. Isso significa que você está com <span class='imc'> {{msg}} </span> e recomenda-se que você <span class='imc'> {{recomenda}}</span>.</p>
+</div>
+<div class="info">
+    <h3>Informação Importante</h3>
+    <p>Apesar do IMC ser considerado fundamental para saber o estado nutricional da pessoa, é uma ferramenta que não leva em consideração muitos outros fatores que são importantes para avaliar o peso de uma pessoa. </p>
+    <p>Assim, embora seja uma boa ferramenta rápida para perceber se o peso está ou não adequado, não é a melhor forma de avaliar o peso. Para isso, o ideal é consultar um médico ou nutricionista para avaliar outros fatores como a idade, nível de atividade física, composição corporal, nível de hidratação e histórico de saúde, por exemplo.</p>
+    <p>Logo a recomendação feita anteriormente é erronea e padronizada, sempre procure um nutricionista ou especialista antes de tomar qualquer decisão.</p>
+</div>
+{%endblock%}
