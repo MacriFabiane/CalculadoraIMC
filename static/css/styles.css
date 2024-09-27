@@ -37,6 +37,11 @@
     background-color: #ffffff ;
 }
 
+.calculadora p{
+    color: red;
+    margin-top: 15px;
+}
+
 .genero h2{
     color: #B22222;
     text-align: center;

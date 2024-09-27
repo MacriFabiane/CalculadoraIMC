@@ -8,10 +8,19 @@ def index(request):
 
 def calcularFemininoMasculino(request):
     if request.method == 'POST':
-        peso = float(request.POST.get('peso', 0)) #vai estar salvando oq é enviado lá campo do peso no post do index
-        altura = float(request.POST.get('altura', 0))
-        
-        resultadoIMC = resultado_imc(peso, altura)
+        try:
+            pesor = request.POST.get('peso', 0)
+            pesor = pesor.replace(',', '.') #evita que dê erro se vire com virgula ao invés de ponto
+            peso = float(pesor) #vai estar salvando oq é enviado lá campo do peso no post do index
+            
+            alturar = request.POST.get('altura', 0)
+            alturar = alturar.replace(',', '.')
+            altura = float(alturar)
+            
+            resultadoIMC = resultado_imc(peso, altura)
+        except ValueError:
+            erro = {'erro': 'Insira somente números na calculadora!'}
+            return render(request,'calculadora/index.html', erro) 
         
         return render(request, 'calculadora/escolhaHomemMulher.html',{'resultado': resultadoIMC})
     return HttpResponse('Requisição Inválida')
